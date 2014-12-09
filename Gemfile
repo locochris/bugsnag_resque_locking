@@ -11,7 +11,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'high_voltage'
+
 gem 'pg'
+gem 'unicorn'
+
 gem 'bugsnag', github: 'bugsnag/bugsnag-ruby', ref: '2f69c9'
 gem 'resque'
 gem 'resque-web', require: 'resque_web'
