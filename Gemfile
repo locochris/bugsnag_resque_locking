@@ -12,6 +12,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'high_voltage'
+gem 'bugsnag', github: 'bugsnag/bugsnag-ruby', ref: '2f69c9'
+gem 'resque'
+gem 'resque-web', require: 'resque_web'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
