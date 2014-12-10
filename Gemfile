@@ -12,7 +12,7 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'high_voltage'
 
-gem 'bugsnag', github: 'bugsnag/bugsnag-ruby', ref: '2f69c9'
+gem 'bugsnag'
 gem 'resque'
 gem 'resque-web', require: 'resque_web'
 
