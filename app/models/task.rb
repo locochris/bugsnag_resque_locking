@@ -1,17 +1,11 @@
-class Task
-  attr_reader :id
-
+class Task < ActiveRecord::Base
   class << self
     alias :queue :name
 
     def perform(id)
       puts "#{name}[#{id}] is about to do some work"
-      new(id).do_now
+      (task = find(id)).do_now
     end
-  end
-
-  def initialize(id)
-    @id = id
   end
 
   def do_later
@@ -20,7 +14,7 @@ class Task
   end
 
   def do_now
-    raise RuntimeError.new('hey rocky watch me pull a bugsnag out of this resque worker')
+    raise RuntimeError.new('hey rocky watch me pull a bugsnag out of this resque worker') if ENV['RAISE_EXCEPTION']
     puts "#{self.class.name}[#{id}] is doing some work now"
   end
 end
