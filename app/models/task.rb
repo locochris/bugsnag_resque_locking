@@ -15,6 +15,15 @@ class Task < ActiveRecord::Base
 
   def do_now
     raise RuntimeError.new('hey rocky watch me pull a bugsnag out of this resque worker') if ENV['RAISE_EXCEPTION']
+  rescue ::Exception => e
+    Bugsnag.notify_or_ignore(e, exception_meta_data)
     puts "#{self.class.name}[#{id}] is doing some work now"
+  end
+
+  def exception_meta_data
+    {
+      user_id: 1,
+      company_id: 2
+    }
   end
 end
