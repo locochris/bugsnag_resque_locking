@@ -17,7 +17,6 @@ gem 'resque'
 gem 'resque-web', require: 'resque_web'
 
 group :development do
-  gem 'sqlite3'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'quiet_assets'

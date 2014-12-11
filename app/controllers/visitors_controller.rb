@@ -1,5 +1,5 @@
 class VisitorsController < ApplicationController
   def index
-    (task = Task.create).do_later
+    Task.new(42).do_later
   end
 end

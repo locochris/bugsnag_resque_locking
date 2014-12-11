@@ -1,11 +1,17 @@
-class Task < ActiveRecord::Base
+class Task
+  attr_reader :id
+
   class << self
     alias :queue :name
 
     def perform(id)
       puts "#{name}[#{id}] is about to do some work"
-      (task = find(id)).do_now
+      new(id).do_now
     end
+  end
+
+  def initialize(id)
+    @id = id
   end
 
   def do_later
